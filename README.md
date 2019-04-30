@@ -1,6 +1,3 @@
-# cowsquare-schema-setup
-How to set up a schema on cowsquare
-
 1. Design schema. [This site](https://ondras.zarovi.cz/sql/demo/) helps you visualize and generate a schema in PostgreSQL.
 
 2. Create new schema in Hasura using SQL.
@@ -64,7 +61,11 @@ create schema demo_ypo
     )
 ```
 
-3. Remember to change "id" to `id uuid DEFAULT gen_random_uuid() NOT NULL`
+3. Remember to: 
+  - Change "id" to `id uuid DEFAULT gen_random_uuid() NOT NULL`
+  - Add schema name to prefix table name (i.e. <schema>.<table_name>)
+  - Remove last row primary key
+  - Remove extra comma before `)` (if any)
 
 4. Navigate to the `Public` DB
    1. Insert Row in `organizations`
